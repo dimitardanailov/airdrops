@@ -1,0 +1,56 @@
+{
+  "name": "zksync",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/zksync/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "platform": "node",
+        "outputPath": "dist/apps/zksync",
+        "format": ["cjs"],
+        "bundle": false,
+        "main": "apps/zksync/src/main.ts",
+        "tsConfig": "apps/zksync/tsconfig.app.json",
+        "assets": ["apps/zksync/src/assets"],
+        "generatePackageJson": true,
+        "esbuildOptions": {
+          "sourcemap": true,
+          "outExtension": {
+            ".js": ".js"
+          }
+        }
+      },
+      "configurations": {
+        "development": {},
+        "production": {
+          "esbuildOptions": {
+            "sourcemap": false,
+            "outExtension": {
+              ".js": ".js"
+            }
+          }
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "zksync:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "zksync:build:development"
+        },
+        "production": {
+          "buildTarget": "zksync:build:production"
+        }
+      }
+    }
+  },
+  "tags": []
+}
