@@ -1,4 +1,5 @@
 import {Wallet} from 'zksync-ethers'
+import {randomItem} from './array/randomElement'
 
 export async function randomAmount(wallet: Wallet) {
   const min = BigInt(2)
@@ -11,13 +12,13 @@ export async function randomAmount(wallet: Wallet) {
 
   const step = BigInt(10000000000)
   let random = minumBalance
-  const elements = [minumBalance]
+  const items = [minumBalance]
   while (random < maximumBalance) {
     random = random + step
-    elements.push(random)
+    items.push(random)
   }
 
-  const item = elements[Math.floor(Math.random() * elements.length)]
+  const item = randomItem(items)
 
   return item
 }

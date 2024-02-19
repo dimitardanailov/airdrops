@@ -1,7 +1,16 @@
 import {Provider, types} from 'zksync-ethers'
-import {ethers} from 'ethers'
+import {ethers, AbstractProvider} from 'ethers'
 
-const provider = Provider.getDefaultProvider(types.Network.Mainnet)
-const ethProvider = ethers.getDefaultProvider('homestead')
+type Pair = {
+  ethProvider: AbstractProvider
+  zkSyncProvider: Provider
+}
 
-export default {provider, ethProvider}
+export function getMainnetProviders(): Pair {
+  const pair: Pair = {
+    ethProvider: ethers.getDefaultProvider('homestead'),
+    zkSyncProvider: Provider.getDefaultProvider(types.Network.Mainnet),
+  }
+
+  return pair
+}
