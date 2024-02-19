@@ -7,7 +7,7 @@ export async function transaction(wallet: Wallet, receiver: string) {
 
   const tx = await wallet.transfer({
     to: receiver,
-    amount: ethers.parseEther('0.0001'),
+    amount: ethers.parseEther('0.0013079917'),
   })
   const receipt = await tx.wait()
   console.log(`Tx: ${receipt.hash}`)

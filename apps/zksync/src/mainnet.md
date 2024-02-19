@@ -8,3 +8,14 @@ Ethereum Wallet - Mnenomic: Mnemonic {
   entropy: '0x5e08cc4e1df6c2983ca744d40ed215c4'
 }
 ```
+
+```js
+Ethereum Wallet - Address: 0xc562BC8a293E72fB760FA2819B0faa0422462351
+Ethereum Wallet - Private Key: 0x2421d395390575469fffe852f5438117c704cde2c64f71a28645cd5325b9fd7c
+Ethereum Wallet - Mnenomic: Mnemonic {
+  phrase: 'emerge mad inflict company polar august glove sand alpha wrong acquire inquiry',
+  password: '',
+  wordlist: LangEn { locale: 'en' },
+  entropy: '0x48b0b5cd974a761e58edf9071fd408ba'
+}
+```
