@@ -1,6 +1,7 @@
 import {Wallet} from 'zksync-ethers'
 import providers from './providers'
 import {bridgeTransaction} from './bridgeTransaction'
+import {transaction} from './transaction'
 
 async function main() {
   const privateKey =
@@ -12,7 +13,8 @@ async function main() {
     providers.ethProvider,
   )
 
-  await bridgeTransaction(wallet)
+  // await bridgeTransaction(wallet)
+  await transaction(wallet, '0x81E9D85b65E9CC8618D85A1110e4b1DF63fA30d9')
 }
 
 main()
