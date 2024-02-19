@@ -1,10 +1,11 @@
+// import {createWallet} from './etherWallet'
 import {Wallet} from 'zksync-ethers'
 import providers from './providers'
 import {transaction} from './transaction'
 
 async function main() {
   const privateKey =
-    '0xf65b1aa3fdf6c275e568a772bde2df5ef3a3af772c3f526a941329866f0ef8ce'
+    '0x2f93826e2ecd68ade5a6ea3bdc93fc16308927149480cc82424b30a78ee91893'
 
   const wallet = new Wallet(
     privateKey,
@@ -12,7 +13,7 @@ async function main() {
     providers.ethProvider,
   )
 
-  await transaction(wallet, '0x81E9D85b65E9CC8618D85A1110e4b1DF63fA30d9')
+  await transaction(wallet, '0xa591d6d5B852d81e2Ee803e7E93bE2A373179EBc')
 }
 
 main()

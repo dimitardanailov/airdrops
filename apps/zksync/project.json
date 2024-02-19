@@ -13,7 +13,7 @@
         "outputPath": "dist/apps/zksync",
         "format": ["cjs"],
         "bundle": false,
-        "main": "apps/zksync/src/main.ts",
+        "main": "apps/zksync/src/mainnet.ts",
         "tsConfig": "apps/zksync/tsconfig.app.json",
         "assets": ["apps/zksync/src/assets"],
         "generatePackageJson": true,
