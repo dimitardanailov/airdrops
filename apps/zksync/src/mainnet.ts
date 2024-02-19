@@ -2,6 +2,7 @@ import {createWallet} from './etherWallet'
 import {Wallet} from 'zksync-ethers'
 import providers from './providers'
 import {transaction} from './transaction'
+import {randomAmount} from './randomAmount'
 
 async function main() {
   const privateKey =
@@ -13,7 +14,13 @@ async function main() {
     providers.ethProvider,
   )
 
-  await transaction(wallet, '0xa591d6d5B852d81e2Ee803e7E93bE2A373179EBc')
+  const amount = await randomAmount(wallet)
+
+  await transaction(
+    wallet,
+    '0x117bc6153031eA9f32865623dfBf5a3E31Ee2C0D',
+    amount,
+  )
 }
 
 async function createWalletConfig() {

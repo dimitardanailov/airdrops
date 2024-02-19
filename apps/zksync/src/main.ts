@@ -12,7 +12,11 @@ async function main() {
     providers.ethProvider,
   )
 
-  await transaction(wallet, '0x81E9D85b65E9CC8618D85A1110e4b1DF63fA30d9')
+  await transaction(
+    wallet,
+    '0x81E9D85b65E9CC8618D85A1110e4b1DF63fA30d9',
+    BigInt(100000),
+  )
 }
 
 main()
