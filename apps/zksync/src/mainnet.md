@@ -30,3 +30,14 @@ Ethereum Wallet - Mnenomic: Mnemonic {
   entropy: '0x30dfd6157881fb0ce31950439e086cc0'
 }
 ```
+
+```js
+Ethereum Wallet - Address: 0xBE4D05eB9d804a8235345D57635bE9aa70068374
+Ethereum Wallet - Private Key: 0x405fbc17e456a49a9ebe443bc9a13c30ddca63d9378b7d24b30afb5fb1c63e04
+Ethereum Wallet - Mnenomic: Mnemonic {
+  phrase: 'model return genuine worth purpose basic soft pistol borrow answer bring brick',
+  password: '',
+  wordlist: LangEn { locale: 'en' },
+  entropy: '0x8e9705857efae62633952b1a0134708d'
+}
+```
