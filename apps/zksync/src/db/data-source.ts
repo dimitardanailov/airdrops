@@ -15,8 +15,9 @@ export const AppDataSource = new DataSource({
   type: 'sqlite',
   database: dbPath,
   entities,
-  logging: true,
-  synchronize: false,
+  logging: false,
+  synchronize: true,
+  migrationsTableName: 'migrations',
 })
 
 export const WalletRepository = AppDataSource.getRepository(Wallet)

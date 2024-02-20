@@ -8,7 +8,9 @@ import {randomAmount} from './randomAmount'
 import {getPrivateKey} from './getPrivateKey'
 import {getReceiver} from './getReceiver'
 import {AppDataSource} from './db/data-source'
-import createDBWallet from './db/helpers/createDBWallet'
+import {insertHDNodeWallets} from './db/helpers/insertWallets'
+import {insertDDanailovWallets} from './db/helpers/ddanailovWallets'
+import {Strategy} from './entities'
 
 async function main() {
   const privateKey = getPrivateKey()
@@ -53,18 +55,11 @@ async function dbLoaderDemo() {
 
 AppDataSource.initialize()
   .then(async () => {
-    console.log('connected!!!')
+    await insertDDanailovWallets()
 
     const zksyncWallet = await createWallet()
-    await createDBWallet(zksyncWallet)
-
-    console.log('zksyncWallet', zksyncWallet)
-
-    // const wallets = await WalletRepository.find()
-
-    // console.log('wallets', wallets)
-
-    // await AppDataSource.manager.save(post)
-    // console.log('Post has been saved: ', post)
+    await insertHDNodeWallets(zksyncWallet, {
+      strategy: Strategy.ddanailov,
+    })
   })
   .catch(error => console.log('Error: ', error))

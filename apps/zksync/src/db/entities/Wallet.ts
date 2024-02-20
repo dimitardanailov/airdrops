@@ -1,13 +1,27 @@
-import {Column, Entity, PrimaryGeneratedColumn} from 'typeorm'
+import {Column, Entity, Index, PrimaryColumn} from 'typeorm'
+import {Strategy} from '../../entities'
 
 @Entity()
 export class Wallet {
-  @PrimaryGeneratedColumn()
-  id: number
+  @PrimaryColumn({
+    type: 'varchar',
+    nullable: false,
+    unique: true,
+  })
+  address: string
 
+  @Index()
   @Column({
     type: 'varchar',
     nullable: false,
   })
-  address: string
+  privateKey: string
+
+  @Index()
+  @Column({
+    type: 'varchar',
+    nullable: false,
+    default: Strategy.ddanailov,
+  })
+  strategy: Strategy
 }
