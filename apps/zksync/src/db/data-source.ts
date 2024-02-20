@@ -3,12 +3,12 @@
  * https://github.com/typeorm/typescript-example/blob/master/src/index.ts
  */
 
-import path from 'path'
 import 'reflect-metadata'
 import {DataSource} from 'typeorm'
 import entities, {Wallet} from './entities'
 
-const dbPath = path.resolve(__dirname, './airdrops.sqlite3')
+const DB_LOCATION = process.env.DB_LOCATION
+const dbPath = `${DB_LOCATION}/airdrops.sqlite3`
 console.log('dbPath', dbPath)
 
 export const AppDataSource = new DataSource({
@@ -16,7 +16,7 @@ export const AppDataSource = new DataSource({
   database: dbPath,
   entities,
   logging: true,
-  synchronize: true,
+  synchronize: false,
 })
 
 export const WalletRepository = AppDataSource.getRepository(Wallet)

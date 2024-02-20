@@ -1,3 +1,5 @@
+import './preloader'
+
 import {createWallet} from './etherWallet'
 import {Wallet} from 'zksync-ethers'
 import {getMainnetProviders} from './providers'
