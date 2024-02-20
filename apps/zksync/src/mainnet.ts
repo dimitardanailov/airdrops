@@ -5,6 +5,8 @@ import {transaction} from './transaction'
 import {randomAmount} from './randomAmount'
 import {getPrivateKey} from './getPrivateKey'
 import {getReceiver} from './getReceiver'
+import {AppDataSource} from './db/data-source'
+import createDBWallet from './db/helpers/createDBWallet'
 
 async function main() {
   const privateKey = getPrivateKey()
@@ -28,19 +30,39 @@ async function main() {
   await transaction(wallet, receiver, amount)
 }
 
-async function createWalletConfig() {
-  await createWallet()
-}
-
+/*
 main()
   .then()
   .catch(error => {
     console.error(`Error: ${error}`)
   })
 
-/*
 createWalletConfig()
   .then()
   .catch(error => {
     console.error(`Error: ${error}`)
   }) */
+
+/*
+async function dbLoaderDemo() {
+  const db = dbLoader()
+  closeConnection(db)
+}*/
+
+AppDataSource.initialize()
+  .then(async () => {
+    console.log('connected!!!')
+
+    const zksyncWallet = await createWallet()
+    await createDBWallet(zksyncWallet)
+
+    console.log('zksyncWallet', zksyncWallet)
+
+    // const wallets = await WalletRepository.find()
+
+    // console.log('wallets', wallets)
+
+    // await AppDataSource.manager.save(post)
+    // console.log('Post has been saved: ', post)
+  })
+  .catch(error => console.log('Error: ', error))
