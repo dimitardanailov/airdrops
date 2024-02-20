@@ -19,3 +19,14 @@ Ethereum Wallet - Mnenomic: Mnemonic {
   entropy: '0x48b0b5cd974a761e58edf9071fd408ba'
 }
 ```
+
+```js
+Ethereum Wallet - Address: 0xbFA058FFB9fFBDb2583BAD6091F92a851De1efa9
+Ethereum Wallet - Private Key: 0xe82e5ac9f22dbd53c14777fcc4e90e63691fd4f66c065543c22b4feaa59d0398
+Ethereum Wallet - Mnenomic: Mnemonic {
+  phrase: 'cotton wrong luxury valve cabbage major midnight claw drum utility brass length',
+  password: '',
+  wordlist: LangEn { locale: 'en' },
+  entropy: '0x30dfd6157881fb0ce31950439e086cc0'
+}
+```

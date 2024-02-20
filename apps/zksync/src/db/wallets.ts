@@ -14,6 +14,11 @@ const wallets: Wallet[] = [
     privateKey:
       '0x2421d395390575469fffe852f5438117c704cde2c64f71a28645cd5325b9fd7c',
   },
+  {
+    address: '0xbFA058FFB9fFBDb2583BAD6091F92a851De1efa9',
+    privateKey:
+      '0xe82e5ac9f22dbd53c14777fcc4e90e63691fd4f66c065543c22b4feaa59d0398',
+  },
 ]
 
 export default wallets
