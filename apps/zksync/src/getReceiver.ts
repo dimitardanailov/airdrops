@@ -1,8 +1,11 @@
 import {Wallet} from 'zksync-ethers'
-import wallets, {Wallet as WalletType} from './db/wallets'
+import {Wallet as DBWallet} from './db/entities'
 import {randomItem} from './array/randomElement'
 
-export async function getReceiver(zksyncWallet: Wallet): Promise<string> {
+export async function getReceiver(
+  wallets: DBWallet[],
+  zksyncWallet: Wallet,
+): Promise<string> {
   const address = await zksyncWallet.getAddress()
 
   const validWallets = wallets.filter(wallet => {
@@ -13,7 +16,7 @@ export async function getReceiver(zksyncWallet: Wallet): Promise<string> {
     throw 'validWallets is empty array! Please review settings'
   }
 
-  const item: WalletType = randomItem(validWallets)
+  const item: Wallet = randomItem(validWallets)
 
   return item.address
 }

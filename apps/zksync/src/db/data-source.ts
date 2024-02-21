@@ -16,7 +16,7 @@ export const AppDataSource = new DataSource({
   database: dbPath,
   entities,
   logging: false,
-  synchronize: true,
+  synchronize: false,
   migrationsTableName: 'migrations',
 })
 

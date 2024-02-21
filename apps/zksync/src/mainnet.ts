@@ -12,35 +12,9 @@ import {insertHDNodeWallets} from './db/helpers/insertWallets'
 import {insertDDanailovWallets} from './db/helpers/ddanailovWallets'
 import {Strategy} from './entities'
 
-async function main() {
-  const privateKey = getPrivateKey()
-
-  const providers = getMainnetProviders()
-
-  const wallet = new Wallet(
-    privateKey,
-    providers.zkSyncProvider,
-    providers.ethProvider,
-  )
-
-  const receiver = await getReceiver(wallet)
-
-  const address = await wallet.getAddress()
-  console.log('Address:', address)
-  console.log('Receiver:', receiver)
-
-  const amount = await randomAmount(wallet)
-
-  await transaction(wallet, receiver, amount)
-}
+import {ddanailovStrategy} from './ddanailovStrategy'
 
 /*
-main()
-  .then()
-  .catch(error => {
-    console.error(`Error: ${error}`)
-  })
-
 createWalletConfig()
   .then()
   .catch(error => {
@@ -55,11 +29,13 @@ async function dbLoaderDemo() {
 
 AppDataSource.initialize()
   .then(async () => {
-    await insertDDanailovWallets()
-
+    // await insertDDanailovWallets()
+    /*
     const zksyncWallet = await createWallet()
     await insertHDNodeWallets(zksyncWallet, {
       strategy: Strategy.ddanailov,
-    })
+    }) */
+
+    await ddanailovStrategy()
   })
   .catch(error => console.log('Error: ', error))

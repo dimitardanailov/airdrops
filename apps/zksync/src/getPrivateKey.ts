@@ -1,8 +1,8 @@
-import wallets from './db/wallets'
+import {Wallet} from './db/entities/Wallet'
 import {randomItem} from './array/randomElement'
 
-export function getPrivateKey(): string {
-  const item = randomItem(wallets)
+export function getPrivateKey(wallets: Wallet[]): string {
+  const item: Wallet = randomItem(wallets)
 
   return item.privateKey
 }
